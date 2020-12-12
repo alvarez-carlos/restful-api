@@ -7,7 +7,7 @@ const cors = require('cors');
 //Declare routues
 const Subjects = require('./routes/subjects');
 const Enrolments = require('./routes/enrolments');
-const Auth = require('./routes/auth');
+const Auth = require('./routes/authentication');
 
 //Create express app
 const app = express()
@@ -22,7 +22,7 @@ app.use(cors())
 //Calling our routes
 app.use('/api/subjects', Subjects)
 app.use('/api/enrolments', Enrolments)
-app.use('api/auth', Auth)
+app.use('/api/auth', Auth)
 
 module.exports = app
 
