@@ -3,7 +3,7 @@ const express = require('express')
 const Subjects = require('../models/subjects')
 const router = express.Router()
 
-//Listar
+//List
 router.get('/', (req, res) => {Subjects.find().exec().then(response => res.status(200).send(response))})
 
 //Get

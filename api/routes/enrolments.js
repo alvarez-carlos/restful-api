@@ -3,7 +3,7 @@ const express = require('express')
 const Enrolments = require('../models/enrolments')
 const router = express.Router()
 
-//Listar
+//List
 router.get('/', (req, res) => {Enrolments.find().exec().then(response => res.status(200).send(response))})
 
 //Get
