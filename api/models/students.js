@@ -1,7 +1,6 @@
 //Students Schema 
-
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const Students = mongoose.model('Student', new Schema({
   name: String,
@@ -9,6 +8,6 @@ const Students = mongoose.model('Student', new Schema({
   password: String,
   salt: String,
   role: { type: String, default: 'user' } //student, professor,..
-}));
+}))
 
-module.exports = Students;
+module.exports = Students

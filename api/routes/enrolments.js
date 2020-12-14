@@ -1,4 +1,22 @@
 //Enrolments EndPoints
-module.exports = (req, res) => {
-  res.send('Hello from routes/enrolments. I list, get, post, put and delete enrolments.')
-}
+const express = require('express')
+const Enrolments = require('../models/enrolments')
+const router = express.Router()
+
+//Listar
+router.get('/', (req, res) => {Enrolments.find().exec().then(response => res.status(200).send(response))})
+
+//Get
+router.get('/:id', (req, res) => {Enrolments.findById(req.params.id).exec().then(response => res.status(200).send(response))})
+
+//Create
+router.post('/', (req, res) => {Enrolments.create(req.body).then(response => res.status(201).send(response))})
+
+//Update
+router.put('/:id', (req, res) => {Enrolments.findOneAndUpdate(req.params.id, req.body).then(() => res.sendStatus(204))})
+
+//Delete
+router.delete('/:id', (req, res) => {Enrolments.findOneAndDelete(req.params.id).exec().then(() => res.sendStatus(204))})
+
+module.exports = router
+
