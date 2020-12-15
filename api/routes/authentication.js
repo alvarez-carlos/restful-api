@@ -9,7 +9,7 @@ const router = express.Router()
 
 //signToken
 const signToken =  (_id) => {
- return jwt.sign({ _id }, 'mi-secreto', {
+ return jwt.sign({ _id }, 'my-secret', {
    expiresIn: 60 * 60 * 24 * 365,
  }) 
 }
