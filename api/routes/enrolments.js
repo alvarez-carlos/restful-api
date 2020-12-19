@@ -11,10 +11,10 @@ router.get('/', (req, res) => {Enrolments.find().exec().then(response => res.sta
 router.get('/:id', (req, res) => {Enrolments.findById(req.params.id).exec().then(response => res.status(200).send(response))})
 
 //Create
-router.post('/', isAuthenticated, (req, res) => {
+router.post('/', (req, res) => {
   const { _id } = req.user
-  //Enrolments.create(req.body).then(response => res.status(201).send(response))
-  Enrolments.create({ ...req.body, user_id: _id }).then(response => res.status(201).send(response))
+  Enrolments.create(req.body).then(response => res.status(201).send(response))
+  // Enrolments.create({ ...req.body, user_id: _id }).then(response => res.status(201).send(response))
 })
 
 //Update
