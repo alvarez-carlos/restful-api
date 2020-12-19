@@ -8,8 +8,7 @@ const Users = require('../models/users')
 const isAuthenticated = (req, res, next) => {
   const token = req.headers.authorization
   if (!token){
-    return res.send('No Auth')
-    ///return res.sendStatus(403) //forbidden: must SignIn 
+    return res.sendStatus(403) //forbidden: must SignIn 
   }
   jwt.verify(token, 'my-secret', (err, tokenDecoded) => {
     const { _id } = tokenDecoded
@@ -27,8 +26,7 @@ const hasRoles = (req, res, next) => {
    if (roles.indexOf(req.user.role) > -1) {
      return next()
    }
-  res.send('no Role')
-  // res.sendStatus(403)
+  res.sendStatus(403)
 }
 
 
